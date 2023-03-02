@@ -1,0 +1,5 @@
+com\paymentchain\customer\CustomerApplication.class
+com\paymentchain\customer\controller\CustomerRestController.class
+com\paymentchain\customer\entities\Customer.class
+com\paymentchain\customer\entities\CustomerProduct.class
+com\paymentchain\customer\respository\CustomerRepository.class

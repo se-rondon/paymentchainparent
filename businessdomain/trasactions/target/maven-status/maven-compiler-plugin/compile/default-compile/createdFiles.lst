@@ -1,0 +1,4 @@
+com\paymentchain\trasactions\entities\Transaction.class
+com\paymentchain\trasactions\TransactionApplication.class
+com\paymentchain\trasactions\controller\TransactionRestController.class
+com\paymentchain\trasactions\respository\TransactionRepository.class

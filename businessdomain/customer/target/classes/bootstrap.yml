@@ -1,0 +1,23 @@
+spring:
+    cloud:
+        config:
+              discovery:
+                    enabled: true
+                    service-id: config-server
+              fail-fast: true
+              name: config-client
+              profile: development
+              username: admin
+              password: admin
+              retry:
+                  max-attempts: 1
+                  max-interval: 1000
+#Misma información que en el application.properties pero escrita en e .yml        
+#management: 
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"  
+#  endpoint:
+#    health:
+#      show-details: ALWAYS
