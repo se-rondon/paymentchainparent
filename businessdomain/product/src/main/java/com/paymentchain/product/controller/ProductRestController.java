@@ -10,6 +10,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,14 +39,22 @@ public class ProductRestController {
     private String role;
     
     @GetMapping()
-    public List<Product> list() {
+    public ResponseEntity<List<Product>> list() {
     	System.out.println("el rol es: "+role);
-        return productRepository.findAll();
+    	List <Product> findAll = productRepository.findAll();
+        if(findAll == null || findAll.isEmpty()) {
+        	return ResponseEntity.noContent().build();
+        }
+        else {
+        	return ResponseEntity.ok(findAll);
+        }
     }
     
     @GetMapping("/{id}")
-    public Product get(@PathVariable long id) {
-        return productRepository.findById(id).get();
+    public ResponseEntity<Product> get(@PathVariable long id) {
+    	return productRepository.findById(id)
+    	        .map(ResponseEntity::ok)
+    	        .orElse(ResponseEntity.notFound().build());
     }
     
     @PutMapping("/{id}")
@@ -57,7 +66,7 @@ public class ProductRestController {
     @PostMapping
     public ResponseEntity<?> post(@RequestBody Product input) {
         Product save = productRepository.save(input);
-        return ResponseEntity.ok(save);
+        return new ResponseEntity<>(save, HttpStatus.CREATED);
     }
     
     @DeleteMapping("/{id}")

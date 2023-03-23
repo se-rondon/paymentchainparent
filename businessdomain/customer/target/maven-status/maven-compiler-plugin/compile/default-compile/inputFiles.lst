@@ -1,7 +1,10 @@
 C:\Users\sergi\Desktop\SERGIO\Cursos\Spring-boot\paymentchainparent\businessdomain\customer\src\main\java\com\paymentchain\customer\respository\CustomerRepository.java
+C:\Users\sergi\Desktop\SERGIO\Cursos\Spring-boot\paymentchainparent\businessdomain\customer\src\main\java\com\paymentchain\customer\exception\BusinessRuleException.java
 C:\Users\sergi\Desktop\SERGIO\Cursos\Spring-boot\paymentchainparent\businessdomain\customer\src\main\java\com\paymentchain\customer\entities\Customer.java
 C:\Users\sergi\Desktop\SERGIO\Cursos\Spring-boot\paymentchainparent\businessdomain\customer\src\main\java\com\paymentchain\customer\entities\CustomerProduct.java
 C:\Users\sergi\Desktop\SERGIO\Cursos\Spring-boot\paymentchainparent\businessdomain\customer\src\main\java\com\paymentchain\customer\common\StandarizedApiExceptionResponse.java
+C:\Users\sergi\Desktop\SERGIO\Cursos\Spring-boot\paymentchainparent\businessdomain\customer\src\main\java\com\paymentchain\customer\common\WebClientConfig.java
 C:\Users\sergi\Desktop\SERGIO\Cursos\Spring-boot\paymentchainparent\businessdomain\customer\src\main\java\com\paymentchain\customer\controller\CustomerRestController.java
 C:\Users\sergi\Desktop\SERGIO\Cursos\Spring-boot\paymentchainparent\businessdomain\customer\src\main\java\com\paymentchain\customer\CustomerApplication.java
+C:\Users\sergi\Desktop\SERGIO\Cursos\Spring-boot\paymentchainparent\businessdomain\customer\src\main\java\com\paymentchain\customer\business\transactions\BusinessTransaction.java
 C:\Users\sergi\Desktop\SERGIO\Cursos\Spring-boot\paymentchainparent\businessdomain\customer\src\main\java\com\paymentchain\customer\exception\ApiExceptionHandler.java

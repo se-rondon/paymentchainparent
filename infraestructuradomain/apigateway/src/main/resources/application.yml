@@ -1,0 +1,23 @@
+server:
+  port: 8080
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER:http://localhost:8761/eureka} 
+
+logging:
+   level:
+      org.springframework.cloud.gateway: DEBUG
+      reactor.netty.http.client: DEBUG
+spring:
+  application:
+    name: apigateway
+  cloud:
+    gateway:
+      routes:
+      - id: customer_service
+        #uri: http://localhost:8081 Forma en la que se podría saltar el apigateway para acceder al micro de customers
+        #Con lb el apigateway descubre la isntancia del micro de clientes. Se pone así por conectarlo a Eureka
+        uri: lb://businessdomain-customer
+        predicates:
+         - Path=/**   #el guion indica que es un array

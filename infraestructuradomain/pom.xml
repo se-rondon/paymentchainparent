@@ -36,5 +36,6 @@
     	<module>eurekaserver</module>
     	<module>adminserver</module>
     	<module>configserver</module>
+    	<module>apigateway</module>
     </modules>
 </project>

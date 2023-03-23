@@ -1,5 +1,10 @@
 com\paymentchain\customer\CustomerApplication.class
 com\paymentchain\customer\controller\CustomerRestController.class
 com\paymentchain\customer\entities\Customer.class
+com\paymentchain\customer\exception\BusinessRuleException.class
 com\paymentchain\customer\entities\CustomerProduct.class
 com\paymentchain\customer\respository\CustomerRepository.class
+com\paymentchain\customer\common\StandarizedApiExceptionResponse.class
+com\paymentchain\customer\exception\ApiExceptionHandler.class
+com\paymentchain\customer\common\WebClientConfig.class
+com\paymentchain\customer\business\transactions\BusinessTransaction.class

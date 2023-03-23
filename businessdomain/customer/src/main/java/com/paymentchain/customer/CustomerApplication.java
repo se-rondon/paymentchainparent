@@ -26,10 +26,11 @@ public class CustomerApplication {
               .build();
   }
   
-  @Bean
-  @LoadBalanced
-  WebClient.Builder loadBalancedWebClientBuilder() {
-      return WebClient.builder();
-  }
- 
+//  Definido en una clase aparte
+//  @Bean
+//  @LoadBalanced
+//  WebClient.Builder loadBalancedWebClientBuilder() {
+//      return WebClient.builder();
+//  }
+// 
 }

@@ -10,6 +10,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,8 +46,12 @@ public class TransactionRestController {
     }
     
     @GetMapping("/customer/transactions")
-    public List<Transaction> get(@RequestParam String ibanAccount) {
-        return transactionRepository.findByIbanAccount(ibanAccount);
+    public ResponseEntity<List<Transaction>> get(@RequestParam String ibanAccount) {
+    	List<Transaction> transaction = transactionRepository.findByIbanAccount(ibanAccount);
+
+        return  transaction.isEmpty()
+        		?ResponseEntity.notFound().build()
+				:ResponseEntity.ok(transaction);
     }
     
     @PutMapping("/{id}")
@@ -69,7 +74,7 @@ public class TransactionRestController {
     @PostMapping
     public ResponseEntity<?> post(@RequestBody Transaction input) {
         Transaction save = transactionRepository.save(input);
-        return ResponseEntity.ok(save);
+        return new ResponseEntity<>(save,HttpStatus.CREATED);
     }
     
     @DeleteMapping("/{id}")
