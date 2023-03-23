@@ -153,12 +153,46 @@ services:
 #    image: dpage/pgadmin4
 #    restart: always
 #    environment:
-#      PGADMIN_DEFAULT_EMAIL: "admin@admin.com"
-#      PGADMIN_DEFAULT_PASSWORD: "qwerty"
+#      PGADMIN_DEFAULT_EMAIL: "admin"
+#      PGADMIN_DEFAULT_PASSWORD: "admin"
 #    ports:
 #      - 80:80
 #    depends_on:
 #      - postgres_db      
+
+##########################################################################     
+ #keycloack service
+ ##########################################################################  
+  keycloack:
+    container_name: keycloackAdapter
+    image: paymentchain/microservice-docker-keycloack-adapter:0.0.1-SNAPSHOT    
+      #All projets will have a variable value  DEUREKA_SERVER this tell where find a registry-discovery server 
+    environment:
+      - JAVA_OPTS=
+         -Xms256M 
+         -Xmx256M
+         -DEUREKA_SERVER=-DEUREKA_SERVER=http://registry-discovery:8761/eureka/
+         -DKEYCLOACK_SERVER=http://keycloack_server:8080/auth/realms/
+         -DKEYCLOACK_REAL_ID=OGtytTpIHDP_pl15YKqyAe7TCbXIPEE4ucM2zBFBZQg
+         #-Dspring.cloud.config.server.native.searchLocations=/var/config-data 
+    depends_on:
+      - registry-discovery
+    ports:
+      - 8088:8088
+      
+ ##########################################################################     
+ #keycloack Server
+ ##########################################################################  
+  keycloack_server:
+    container_name: id-keycloackServer
+    image: jboss/keycloak
+    restart: always
+    environment:
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+      DB_VENDOR: H2 #H2 es BBDD local en memoria
+    ports:
+      - 8091:8080   
       
 
 
